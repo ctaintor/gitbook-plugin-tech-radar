@@ -672,7 +672,7 @@ const Radar = function (size, radar) {
       .attr('transform', 'translate(' + translateXAll + ',' + translateYAll + ')scale(0)')
 
     if (d3.select('.legend.legend-' + order).empty()) {
-      drawLegend(order)
+      // drawLegend(order)
     }
   }
 
