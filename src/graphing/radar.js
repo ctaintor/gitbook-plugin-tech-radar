@@ -234,7 +234,7 @@ const Radar = function (size, radar) {
             .append('li')
             .attr('class', 'blip-list-item-group')
 	    .attr('data-tags', blip.tags().join(' '))
-	  var blipText = blip.number() + '. ' + blip.name() + blip.asterisk() + (blip.topic() ? ('. - ' + blip.topic()) : '')
+	  var blipText = blip.number() + '. ' + blip.name() + (blip.topic() ? ('. - ' + blip.topic()) : '')
           blipListItem.append('div')
             .attr('class', 'blip-list-item')
 	    .text(blipText)
@@ -316,8 +316,9 @@ const Radar = function (size, radar) {
   function drawLegend (order) {
     removeRadarLegend()
 
-    var triangleKey = 'New or moved'
-    var circleKey = 'No change'
+    // We've reused 'isNew' to mean "managed centrally"
+    var triangleKey = 'Centrally managed'
+    var circleKey = 'Individually managed'
 
     var container = d3.select('svg').append('g')
       .attr('class', 'legend legend' + '-' + order)
@@ -356,7 +357,7 @@ const Radar = function (size, radar) {
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 5)
-      .attr('font-size', '0.8em')
+      .attr('font-size', '0.6em')
       .text(triangleKey)
 
     circleLegend(x, y + 20, container)
@@ -365,7 +366,7 @@ const Radar = function (size, radar) {
       .append('text')
       .attr('x', x + 15)
       .attr('y', y + 25)
-      .attr('font-size', '0.8em')
+      .attr('font-size', '0.6em')
       .text(circleKey)
   }
 
@@ -672,7 +673,7 @@ const Radar = function (size, radar) {
       .attr('transform', 'translate(' + translateXAll + ',' + translateYAll + ')scale(0)')
 
     if (d3.select('.legend.legend-' + order).empty()) {
-      // drawLegend(order)
+       drawLegend(order)
     }
   }
 
