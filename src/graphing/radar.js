@@ -234,7 +234,7 @@ const Radar = function (size, radar) {
             .append('li')
             .attr('class', 'blip-list-item-group')
 	    .attr('data-tags', blip.tags().join(' '))
-	  var blipText = blip.number() + '. ' + blip.name() + (blip.topic() ? ('. - ' + blip.topic()) : '')
+	  var blipText = blip.number() + '. ' + blip.name() + blip.asterisk() + (blip.topic() ? ('. - ' + blip.topic()) : '')
           blipListItem.append('div')
             .attr('class', 'blip-list-item')
 	    .text(blipText)

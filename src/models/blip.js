@@ -20,6 +20,14 @@ const Blip = function (name, ring, isNew, topic, description, docLink, tags, met
     }
   }
 
+  self.asterisk = function () {
+    if (self.tags().includes('managed_centrally')) {
+      return '*';
+    } else {
+      return '';
+    }
+  };
+
   self.description = function () {
     return description || '';
   };
