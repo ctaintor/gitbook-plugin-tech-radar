@@ -317,8 +317,8 @@ const Radar = function (size, radar) {
     removeRadarLegend()
 
     // We've reused 'isNew' to mean "managed centrally"
-    var triangleKey = 'Centrally managed'
-    var circleKey = 'Individually managed'
+    var triangleKey = 'Managed centrally'
+    //var circleKey = 'Individually managed'
 
     var container = d3.select('svg').append('g')
       .attr('class', 'legend legend' + '-' + order)
@@ -360,14 +360,14 @@ const Radar = function (size, radar) {
       .attr('font-size', '0.6em')
       .text(triangleKey)
 
-    circleLegend(x, y + 20, container)
-
-    container
-      .append('text')
-      .attr('x', x + 15)
-      .attr('y', y + 25)
-      .attr('font-size', '0.6em')
-      .text(circleKey)
+    // circleLegend(x, y + 20, container)
+    //
+    // container
+    //   .append('text')
+    //   .attr('x', x + 15)
+    //   .attr('y', y + 25)
+    //   .attr('font-size', '0.6em')
+    //   .text(circleKey)
   }
 
   function redrawFullRadar () {
