@@ -94,7 +94,12 @@ const JsonToRadar = function (name) {
                 });
 
                 var radar = new Radar();
-                _.each(quadrants, function (quadrant) {
+                var orderedQuadrants = [];
+                orderedQuadrants.push(quadrants['Languages & Frameworks']);
+                orderedQuadrants.push(quadrants['Data']);
+                orderedQuadrants.push(quadrants['Build']);
+                orderedQuadrants.push(quadrants['Run']);
+                _.each(orderedQuadrants, function (quadrant) {
                     radar.addQuadrant(quadrant)
                 });
                 if (footerHtml) {
