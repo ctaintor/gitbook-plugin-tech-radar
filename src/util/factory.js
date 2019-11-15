@@ -129,6 +129,7 @@ const JsonToRadar = function (name) {
             .attr('class', 'input-sheet');
 
         set_document_title();
+        redirectIfStash();
 
         plotLogo(content);
 
@@ -172,6 +173,16 @@ const JsonToRadarInput = function () {
 
 function set_document_title() {
     document.title = "Build your own Radar";
+}
+
+function redirectIfStash() {
+  const currentLocation = window.location.href;
+
+  if (currentLocation.match(/stash/)) {
+    const oldLocation = "https://stash.int.klarna.net/pages/ARCH/radar/docs/browse";
+    const newLocation = "https://techradar.klarna.net";
+    window.location.href = currentLocation.replace(oldLocation, newLocation);
+  }
 }
 
 function plotLogo(content) {
